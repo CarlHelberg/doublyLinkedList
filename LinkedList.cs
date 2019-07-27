@@ -58,9 +58,7 @@ namespace ConsoleApp4
                     System.Console.WriteLine(tempValue.value);
                     tempValue = tempValue.next; 
                 }
-                System.Console.WriteLine(Head.value);
             }
-            
         }
         
     class Program
