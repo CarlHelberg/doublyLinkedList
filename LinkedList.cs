@@ -19,14 +19,41 @@ namespace ConsoleApp4
          class  LinkedList<T>
         {
             public   Node<T> Head;
-            public   int Length = 0;
+            public int Length = 0;
 
-            public  void Prepend( T prependValue)
+            public void Prepend(T prependValue)
             {
                 Node<T> PrependThis = new Node<T>(prependValue);
                 PrependThis.next = Head;
                 Head = PrependThis;
                 Length++;
+            }
+            
+            public void Append(T appendValue)
+            {
+                var tempValue = Head;
+                var appendHere = tempValue;
+                Node<T> AppendThis = new Node<T>(appendValue);
+                if(Length == 0)
+                {
+                    AppendThis.next = Head;
+                    Head = AppendThis;
+                    Length++;
+                    return;
+                }
+                if (Length > 0)
+                {
+                    while(tempValue != null)
+                    {
+                        if(tempValue.next == null)
+                        {
+                            tempValue.next = AppendThis;
+                            Length ++;
+                            break;
+                        } 
+                        tempValue = tempValue.next;
+                    }
+                }        
             }
 
             public override string ToString()
@@ -54,7 +81,6 @@ namespace ConsoleApp4
                 var tempValue = Head;
                 while(tempValue != null)
                 {
-                    
                     System.Console.WriteLine(tempValue.value);
                     tempValue = tempValue.next; 
                 }
@@ -65,17 +91,7 @@ namespace ConsoleApp4
     {
         static void Main(string[] args)
         {
-            LinkedList<int> thisDamnList = new LinkedList<int>();
-            thisDamnList.Prepend(2);
-            thisDamnList.Prepend(456);
-            thisDamnList.Prepend(56);
-            thisDamnList.Prepend(5);
-            thisDamnList.Prepend(564);
-            thisDamnList.Prepend(34);
-            thisDamnList.Prepend(76);
-            System.Console.WriteLine("Done appending");
-            thisDamnList.ToString();
-            Console.Read();
+         
         }
     }
 }
