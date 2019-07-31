@@ -30,19 +30,26 @@ namespace doublyLinkedList
             public void Append(T _value)
             {
                 Node<T> AppendThis = new Node<T>(_value);
-                var toReturn = Head;
                 var current = Head;
-                while(current != null)
+                if(current == null)
                 {
-                    if (current.next == null)
-                    {
-                        break;
-                    }
-                    current = current.next;
+                    AppendThis.next = Head;
+                    Head = AppendThis;
                 }
-                current.next = AppendThis;
-                AppendThis.previous = current;
-                Length++;
+                else
+                {
+                    while(current != null)
+                    {
+                        if (current.next == null)
+                        {   
+                         break;
+                        }   
+                        current = current.next;
+                    }
+                    current.next = AppendThis;
+                    AppendThis.previous = current;
+                    Length++;
+                }
             }
         }
 
