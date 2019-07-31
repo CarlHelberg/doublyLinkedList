@@ -13,7 +13,6 @@ namespace doublyLinkedList
             public object value;
             public Node<T> next;
             public Node<T> previous;
-            private object tempPrevious;
 
             public Node (T _value)
             {
