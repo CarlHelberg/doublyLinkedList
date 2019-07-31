@@ -13,54 +13,36 @@ namespace doublyLinkedList
             public object value;
             public Node<T> next;
             public Node<T> previous;
-            private static object tempPrevious;
-
+            
             public Node (T _value)
             {
                 value = _value;
                 next = null;
-                
-                if (LinkedList<T>.Length <= 1)
-                {
-                    previous = null;
-                    tempPrevious = this;
-                }
-                else if(LinkedList<T>.Length > 1)
-                {
-                    previous = tempPrevious as Node<T>;
-                    tempPrevious = this;
-                }
+                previous = null;
             }
         }
 
-        class LinkedList<T>
+        class DoublyLinkedList<T>
         {
-            public static Node<T> Head;
-            public static int Length = 0;
-            
+            public Node<T> Head;
+            public int Length = 0;
+
             public void Append(T _value)
             {
                 Node<T> AppendThis = new Node<T>(_value);
-                var tempValue = Head;
-                if (LinkedList<T>.Length == 0)
+                var toReturn = Head;
+                var current = Head;
+                while(current != null)
                 {
-                    Head = AppendThis;
-                    Length++;
-                }
-                if (Length > 0)
-                {
-                    while (tempValue != null)
+                    if (current.next == null)
                     {
-
-                        if (tempValue.next == null)
-                        {
-                            tempValue.next = AppendThis;
-                            Length++;
-                            break;
-                        }
-                        tempValue = tempValue.next;
+                        break;
                     }
+                    current = current.next;
                 }
+                current.next = AppendThis;
+                AppendThis.previous = current;
+                Length++;
             }
         }
 
