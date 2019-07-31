@@ -37,6 +37,14 @@ namespace doublyLinkedList
         {
             public static Node<T> Head;
             public static int Length = 0;
+
+            public void Prepend(T _value)
+            {
+                Node<T> PrependThis = new Node<T>(_value);
+                PrependThis.next = Head;
+                Head = PrependThis;
+                Length++;
+            }
         }
 
         static void Main(string[] args)
