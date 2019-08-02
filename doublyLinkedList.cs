@@ -27,6 +27,30 @@ namespace doublyLinkedList
             public Node<T> Head;
             public int Length = 0;
 
+            public void Append(T _value)
+            {
+                Node<T> AppendThis = new Node<T>(_value);
+                var current = Head;
+                if(current == null)
+                {
+                    AppendThis.next = Head;
+                    Head = AppendThis;
+                }
+                else
+                {
+                    while(current != null)
+                    {
+                        if (current.next == null)
+                        {   
+                         break;
+                        }   
+                        current = current.next;
+                    }
+                    current.next = AppendThis;
+                    AppendThis.previous = current;
+                    Length++;
+                }
+            }
         }    
         static void Main(string[] args)
         {
