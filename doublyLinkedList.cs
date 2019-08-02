@@ -10,7 +10,7 @@ namespace doublyLinkedList
     {
         class DoublyLinkedList<T>
         {
-            class Node<T>
+            public class Node<T>
             {
                 public object value;
                 public Node<T> next;
@@ -26,11 +26,11 @@ namespace doublyLinkedList
 
             public Node<T> Head;
             public int Length = 0;
-        }
 
+        }    
         static void Main(string[] args)
         {
-            
+           
         }
     }
 }
