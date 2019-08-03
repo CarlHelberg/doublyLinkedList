@@ -27,6 +27,16 @@ namespace doublyLinkedList
             public Node<T> Head;
             public int Length = 0;
 
+            public void Traverse()
+            {
+                var tempValue = Head;
+                while(tempValue != null)
+                {
+                    
+                    System.Console.WriteLine(tempValue.value);
+                    tempValue = tempValue.next; 
+                }
+            }
         }    
         static void Main(string[] args)
         {
