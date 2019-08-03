@@ -33,8 +33,20 @@ namespace doublyLinkedList
                 PrependThis.next = Head;
                 Head = PrependThis;
                 Length++;
+  
             }
-        }    
+            public void Traverse()
+            {
+                var tempValue = Head;
+                while(tempValue != null)
+                {
+                    
+                    System.Console.WriteLine(tempValue.value);
+                    tempValue = tempValue.next; 
+                }
+            }
+        }
+      
         static void Main(string[] args)
         {
            
