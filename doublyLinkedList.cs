@@ -27,6 +27,14 @@ namespace doublyLinkedList
             public Node<T> Head;
             public int Length = 0;
 
+            public void Prepend(T _value)
+            {
+                Node<T> PrependThis = new Node<T>(_value);
+                PrependThis.next = Head;
+                Head = PrependThis;
+                Length++;
+  
+            }
             public void Traverse()
             {
                 var tempValue = Head;
@@ -37,7 +45,8 @@ namespace doublyLinkedList
                     tempValue = tempValue.next; 
                 }
             }
-        }    
+        }
+      
         static void Main(string[] args)
         {
            
